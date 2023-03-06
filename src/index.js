@@ -18,12 +18,7 @@ function onSearch() {
       return 
   }
 
-  fetchCountries(countryName).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  })
+  fetchCountries(countryName)
     .then(data => {
       const arrCountryLanguages = data.map(item => item.languages).map(item => item.map(item => item.name));
       if (data.length > 10) {
